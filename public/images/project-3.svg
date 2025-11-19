@@ -1,0 +1,11 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#0D0D0D"/>
+  <path d="M 960 240 L 1200 540 L 960 840 L 720 540 Z" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M 960 340 L 1100 540 L 960 740 L 820 540 Z" stroke="#F0F0F0" stroke-width="2" fill="none" opacity="0.2"/>
+  <circle cx="960" cy="240" r="10" fill="#00FFFF" opacity="0.6"/>
+  <circle cx="1200" cy="540" r="10" fill="#00FFFF" opacity="0.6"/>
+  <circle cx="960" cy="840" r="10" fill="#00FFFF" opacity="0.6"/>
+  <circle cx="720" cy="540" r="10" fill="#00FFFF" opacity="0.6"/>
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle" font-family="monospace" font-size="48" fill="#F0F0F0" opacity="0.5">VOID ARCHIVE</text>
+  <text x="960" y="600" text-anchor="middle" font-family="monospace" font-size="24" fill="#00FFFF" opacity="0.3">Digital Gallery</text>
+</svg>

@@ -1,0 +1,35 @@
+{
+  "name": "portfolio-aliocha",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "three": "^0.168.0",
+    "@react-three/fiber": "^8.17.0",
+    "@react-three/drei": "^9.112.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.0",
+    "zustand": "^4.5.0",
+    "glsl-noise": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/three": "^0.168.0",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.0"
+  }
+}

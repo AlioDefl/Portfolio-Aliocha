@@ -1,0 +1,250 @@
+{
+  "fr": {
+    "hero": {
+      "name": "ALIOCHA DEFLOU",
+      "title": "DEVELOPPEUR FULL STACK",
+      "subtitle": "Étudiant en BUT Informatique à Lille, j'allie rigueur, technique et créativité pour développer des solutions innovantes."
+    },
+    "about": {
+      "bio": "Je m'appelle Aliocha Deflou et je suis étudiant en BUT Informatique à Lille. Mon objectif: concevoir et développer des applications web simples à utiliser, solides dans le temps et faciles à faire évoluer. Au quotidien, je passe du cadrage à la réalisation technique. J'accorde une importance particulière à la clarté, la performance perçue et la qualité du code.",
+      "location": "Lille, France",
+      "availability": "Ouvert aux opportunités"
+    },
+    "projects": [
+      {
+        "id": 1,
+        "title": "PORTFOLIO ARCHITECTE",
+        "category": "Développement Web",
+        "year": "2025",
+        "description": "Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",
+        "challenges": "Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution, interface intuitive pour la navigation des projets",
+        "learnings": "Développement front-end moderne, optimisation d'images web, design responsive avancé, intégration de galeries photo",
+        "impact": "Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web pour des portfolios professionnels.",
+        "image": "/images/project-1.png",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Tailwind",
+          "Vite"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "JEU RISK",
+        "category": "Développement Jeu",
+        "year": "2025",
+        "description": "Jeu de stratégie complet exécutable sur le terminal.",
+        "challenges": "Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires, gestion de l'état du jeu en temps réel.",
+        "learnings": "Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",
+        "impact": "Amélioration significative de la compréhension des structures de données et de la logique algorithmique.",
+        "image": "/images/project-2.png",
+        "tech": [
+          "Java",
+          "Terminal",
+          "OOP"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "SEJOURS LINGUISTIQUES",
+        "category": "App Bureau",
+        "year": "2025",
+        "description": "Application d'organisation de séjours avec interface graphique complète.",
+        "challenges": "Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale, synchronisation des données.",
+        "learnings": "Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",
+        "impact": "Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",
+        "image": "/images/project-3.png",
+        "tech": [
+          "Java",
+          "IHM",
+          "Swing"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "SITE OPENAI",
+        "category": "Intégration Web",
+        "year": "2023",
+        "description": "Re-création fidèle du site officiel d'OpenAI.",
+        "challenges": "Reproduction fidèle du design pixel-perfect, gestion des animations CSS complexes, compatibilité cross-browser.",
+        "learnings": "Maîtrise avancée de CSS3, Flexbox et Grid, bonnes pratiques d'intégration web.",
+        "impact": "Démonstration de la capacité à reproduire des designs professionnels complexes.",
+        "image": "/images/project-4.png",
+        "tech": [
+          "HTML",
+          "CSS",
+          "Responsive"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "MAUSCAPE",
+        "category": "Développement Jeu",
+        "year": "2023",
+        "description": "Jeu d'aventure textuel jouable dans le terminal.",
+        "challenges": "Création d'un moteur de jeu textuel, gestion des scénarios à embranchements, parsing des commandes utilisateur.",
+        "learnings": "Logique de programmation fondamentale, gestion des entrées/sorties, structuration de code.",
+        "impact": "Premier projet complet de jeu, renforçant la passion pour le développement logiciel.",
+        "image": "/images/project-5.png",
+        "tech": [
+          "Java",
+          "Terminal"
+        ]
+      }
+    ],
+    "skills": {
+      "technical": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Java",
+        "Tailwind CSS",
+        "Three.js",
+        "GSAP",
+        "SQL",
+        "Git",
+        "Vite",
+        "Figma"
+      ],
+      "design": [
+        "UI/UX Design",
+        "Design Systems",
+        "Responsive Design",
+        "Prototyping",
+        "Motion Design",
+        "Wireframing"
+      ]
+    },
+    "contact": {
+      "email": "aliocha.deflou@gmail.com",
+      "github": "github.com/aliocha",
+      "linkedin": "linkedin.com/in/aliocha-deflou",
+      "twitter": "@aliocha_dev"
+    }
+  },
+  "en": {
+    "hero": {
+      "name": "ALIOCHA DEFLOU",
+      "title": "FULL STACK DEVELOPER",
+      "subtitle": "CS student in Lille, combining rigor, technique, and creativity to build innovative solutions."
+    },
+    "about": {
+      "bio": "I'm Aliocha Deflou, a Computer Science student in Lille. My goal: design and develop web applications that are simple to use, robust over time, and easy to scale. Daily, I move from framing to technical implementation. I place particular importance on clarity, perceived performance, and code quality.",
+      "location": "Lille, France",
+      "availability": "Open to opportunities"
+    },
+    "projects": [
+      {
+        "id": 1,
+        "title": "ARCHITECT PORTFOLIO",
+        "category": "Web Development",
+        "year": "2025",
+        "description": "Development of a modern portfolio website for an architect, showcasing architectural creations.",
+        "challenges": "Responsive design to highlight architectural images, performance optimization for high-res images, intuitive interface for project navigation.",
+        "learnings": "Modern front-end development, web image optimization, advanced responsive design, photo gallery integration.",
+        "impact": "Project that allowed me to explore the field of architecture and develop my web design skills for professional portfolios.",
+        "image": "/images/project-1.png",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Tailwind",
+          "Vite"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "RISK GAME",
+        "category": "Game Development",
+        "year": "2025",
+        "description": "Complete strategy game executable in the terminal.",
+        "challenges": "Managing complex game logic, implementing AI for opponents, managing real-time game state.",
+        "learnings": "Advanced Object-Oriented Programming, strategy algorithms, memory management in Java.",
+        "impact": "Significant improvement in understanding data structures and algorithmic logic.",
+        "image": "/images/project-2.png",
+        "tech": [
+          "Java",
+          "Terminal",
+          "OOP"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "LANGUAGE STAYS",
+        "category": "Desktop App",
+        "year": "2025",
+        "description": "Stay organization application with full graphical interface.",
+        "challenges": "Designing an intuitive user interface with Swing, local database management, data synchronization.",
+        "learnings": "GUI development, event handling, data persistence.",
+        "impact": "Creation of a functional tool facilitating administrative management of stays.",
+        "image": "/images/project-3.png",
+        "tech": [
+          "Java",
+          "IHM",
+          "Swing"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "OPENAI SITE",
+        "category": "Web Integration",
+        "year": "2023",
+        "description": "Faithful recreation of the official OpenAI website.",
+        "challenges": "Faithful pixel-perfect design reproduction, managing complex CSS animations, cross-browser compatibility.",
+        "learnings": "Advanced mastery of CSS3, Flexbox and Grid, web integration best practices.",
+        "impact": "Demonstration of the ability to reproduce complex professional designs.",
+        "image": "/images/project-4.png",
+        "tech": [
+          "HTML",
+          "CSS",
+          "Responsive"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "MAUSCAPE",
+        "category": "Game Development",
+        "year": "2023",
+        "description": "Text-based adventure game playable in the terminal.",
+        "challenges": "Creating a text game engine, managing branching scenarios, parsing user commands.",
+        "learnings": "Fundamental programming logic, I/O management, code structuring.",
+        "impact": "First complete game project, reinforcing passion for software development.",
+        "image": "/images/project-5.png",
+        "tech": [
+          "Java",
+          "Terminal"
+        ]
+      }
+    ],
+    "skills": {
+      "technical": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Java",
+        "Tailwind CSS",
+        "Three.js",
+        "GSAP",
+        "SQL",
+        "Git",
+        "Vite",
+        "Figma"
+      ],
+      "design": [
+        "UI/UX Design",
+        "Design Systems",
+        "Responsive Design",
+        "Prototyping",
+        "Motion Design",
+        "Wireframing"
+      ]
+    },
+    "contact": {
+      "email": "aliocha.deflou@gmail.com",
+      "github": "github.com/aliocha",
+      "linkedin": "linkedin.com/in/aliocha-deflou",
+      "twitter": "@aliocha_dev"
+    }
+  }
+}
