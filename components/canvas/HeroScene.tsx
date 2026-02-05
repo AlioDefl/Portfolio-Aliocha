@@ -1,28 +1,39 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Text3D, Center } from "@react-three/drei";
-import { useRef, useMemo } from "react";
+import { Float } from "@react-three/drei";
+import { useRef, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useStore } from "@/store/useStore";
 import ErrorBoundary from "@/components/dom/ErrorBoundary";
+import { PARTICLES, COLORS, getParticleCount } from "@/lib/constants";
 
-// Particle system
+// Particle system with responsive particle count
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null);
   const mouse = useStore((state) => state.mouse);
+  const [particlesCount, setParticlesCount] = useState(PARTICLES.COUNT_DESKTOP);
 
-  const particlesCount = 5000;
+  // Adjust particle count based on screen size
+  useEffect(() => {
+    const updateParticleCount = () => {
+      setParticlesCount(getParticleCount(window.innerWidth));
+    };
+
+    updateParticleCount();
+    window.addEventListener("resize", updateParticleCount);
+    return () => window.removeEventListener("resize", updateParticleCount);
+  }, []);
 
   const positions = useMemo(() => {
     const positions = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 50;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 50;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+      positions[i * 3] = (Math.random() - 0.5) * PARTICLES.POSITION_RANGE_XY;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * PARTICLES.POSITION_RANGE_XY;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * PARTICLES.POSITION_RANGE_Z;
     }
     return positions;
-  }, []);
+  }, [particlesCount]);
 
   useFrame((state) => {
     if (!pointsRef.current) return;
@@ -30,11 +41,11 @@ function Particles() {
     const time = state.clock.elapsedTime;
 
     // Rotate the entire particle system
-    pointsRef.current.rotation.y = time * 0.05;
+    pointsRef.current.rotation.y = time * PARTICLES.ROTATION_SPEED_Y;
 
     // Mouse interaction
-    pointsRef.current.rotation.x = mouse.y * 0.3;
-    pointsRef.current.rotation.z = mouse.x * 0.1;
+    pointsRef.current.rotation.x = mouse.y * PARTICLES.MOUSE_ROTATION_X;
+    pointsRef.current.rotation.z = mouse.x * PARTICLES.MOUSE_ROTATION_Z;
   });
 
   return (
@@ -48,10 +59,10 @@ function Particles() {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.05}
-        color="#F0F0F0"
+        size={PARTICLES.SIZE}
+        color={COLORS.LIGHT}
         transparent
-        opacity={0.6}
+        opacity={PARTICLES.OPACITY}
         sizeAttenuation
         depthWrite={false}
         blending={THREE.AdditiveBlending}
@@ -67,21 +78,21 @@ function FloatingShapes() {
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
         <mesh position={[-5, 2, -5]}>
           <torusKnotGeometry args={[0.5, 0.2, 128, 32]} />
-          <meshBasicMaterial color="#00FFFF" wireframe />
+          <meshBasicMaterial color={COLORS.ACCENT} wireframe />
         </mesh>
       </Float>
 
       <Float speed={2} rotationIntensity={1} floatIntensity={0.8}>
         <mesh position={[6, -1, -8]}>
           <octahedronGeometry args={[1]} />
-          <meshBasicMaterial color="#F0F0F0" wireframe />
+          <meshBasicMaterial color={COLORS.LIGHT} wireframe />
         </mesh>
       </Float>
 
       <Float speed={1.8} rotationIntensity={0.8} floatIntensity={0.6}>
         <mesh position={[3, 3, -6]}>
           <icosahedronGeometry args={[0.7, 0]} />
-          <meshBasicMaterial color="#00FFFF" wireframe />
+          <meshBasicMaterial color={COLORS.ACCENT} wireframe />
         </mesh>
       </Float>
     </>
@@ -96,7 +107,7 @@ export default function HeroScene() {
           camera={{ position: [0, 0, 10], fov: 75 }}
           gl={{ antialias: true, alpha: true }}
         >
-          <color attach="background" args={["#050505"]} />
+          <color attach="background" args={[COLORS.DARK]} />
           <Particles />
           <FloatingShapes />
         </Canvas>

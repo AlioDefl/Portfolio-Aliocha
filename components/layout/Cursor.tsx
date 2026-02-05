@@ -1,14 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useStore } from "@/store/useStore";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorVariant = useStore((state) => state.cursorVariant);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Detect touch device
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        window.matchMedia("(pointer: coarse)").matches ||
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0
+      );
+    };
+
+    checkTouchDevice();
+    window.addEventListener("resize", checkTouchDevice);
+    return () => window.removeEventListener("resize", checkTouchDevice);
+  }, []);
 
   useEffect(() => {
+    // Don't set up cursor on touch devices
+    if (isTouchDevice) return;
+
     const cursor = cursorRef.current;
     if (!cursor) return;
 
@@ -47,10 +66,12 @@ export default function Cursor() {
       window.removeEventListener("mousemove", moveCursor);
       cleanupFunctions.forEach((cleanup) => cleanup());
     };
-  }, []);
+  }, [isTouchDevice]);
 
   // Update cursor appearance based on variant
   useEffect(() => {
+    if (isTouchDevice) return;
+
     const cursor = cursorRef.current;
     if (!cursor) return;
 
@@ -81,7 +102,10 @@ export default function Cursor() {
           ease: "power2.out",
         });
     }
-  }, [cursorVariant]);
+  }, [cursorVariant, isTouchDevice]);
+
+  // Don't render cursor on touch devices
+  if (isTouchDevice) return null;
 
   return (
     <div
