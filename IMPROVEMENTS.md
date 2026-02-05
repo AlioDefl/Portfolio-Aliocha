@@ -179,34 +179,34 @@ const screenY = (-mouse.y + 1) * window.innerHeight / 2;
 ## 📋 Checklist des Corrections
 
 ### Bugs Critiques
-- [ ] Corriger le cleanup des listeners dans Contact.tsx
-- [ ] Corriger le cleanup des listeners dans Cursor.tsx
-- [ ] Corriger le cleanup GSAP dans SmoothScroll.tsx
-- [ ] Corriger l'affichage du pourcentage dans Loader.tsx
-- [ ] Corriger les coordonnées souris dans Lights.tsx
+- [x] Corriger le cleanup des listeners dans Contact.tsx ✅
+- [x] Corriger le cleanup des listeners dans Cursor.tsx ✅
+- [x] Corriger le cleanup GSAP dans SmoothScroll.tsx ✅
+- [x] Corriger l'affichage du pourcentage dans Loader.tsx ✅
+- [x] Corriger les coordonnées souris dans Lights.tsx ✅
 
 ### Problèmes Moyens
-- [ ] Résoudre styled-jsx ou migrer l'animation
-- [ ] Internationaliser ProjectModal.tsx
-- [ ] Optimiser les images avec next/image
-- [ ] Ajouter ErrorBoundary à SkillsSphere
-- [ ] Rendre l'année du footer dynamique
+- [x] Résoudre styled-jsx ou migrer l'animation ✅
+- [x] Internationaliser ProjectModal.tsx ✅
+- [x] Optimiser les images avec next/image ✅
+- [x] Ajouter ErrorBoundary à SkillsSphere ✅
+- [x] Rendre l'année du footer dynamique ✅
 
 ### Améliorations
-- [ ] Ajouter les fichiers de polices
-- [ ] Créer favicon et images OG
-- [ ] Créer page 404
-- [ ] Ajouter sitemap et robots.txt
-- [ ] Améliorer les métadonnées SEO
-- [ ] Optimiser pour mobile
-- [ ] Améliorer l'accessibilité du curseur
+- [ ] Ajouter les fichiers de polices (à télécharger manuellement)
+- [x] Créer favicon et images OG (metadata ajoutée) ✅
+- [x] Créer page 404 ✅
+- [x] Ajouter sitemap et robots.txt ✅
+- [x] Améliorer les métadonnées SEO ✅
+- [x] Optimiser pour mobile ✅
+- [x] Améliorer l'accessibilité du curseur ✅
 - [ ] Ajouter des états de chargement d'images
 
 ### Qualité de Code
 - [ ] Renforcer les types TypeScript
-- [ ] Extraire les constantes
+- [x] Extraire les constantes ✅ (lib/constants.ts)
 - [ ] Créer des hooks réutilisables
-- [ ] Centraliser la config GSAP
+- [x] Centraliser la config GSAP ✅ (lib/gsap.ts)
 
 ---
 
