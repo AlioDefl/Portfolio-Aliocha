@@ -12,7 +12,7 @@ import { PARTICLES, COLORS, getParticleCount } from "@/lib/constants";
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null);
   const mouse = useStore((state) => state.mouse);
-  const [particlesCount, setParticlesCount] = useState(PARTICLES.COUNT_DESKTOP);
+  const [particlesCount, setParticlesCount] = useState<number>(PARTICLES.COUNT_DESKTOP);
 
   // Adjust particle count based on screen size
   useEffect(() => {
