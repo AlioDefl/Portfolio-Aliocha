@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useStore } from "@/store/useStore";
+import { ANIMATION } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,8 +16,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   useEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis({
-      lerp: 0.08, // Heavy, premium feel
-      duration: 1.5,
+      lerp: ANIMATION.LENIS_LERP,
+      duration: ANIMATION.LENIS_DURATION,
       smoothWheel: true,
     });
 

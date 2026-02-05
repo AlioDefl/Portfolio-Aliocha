@@ -73,19 +73,20 @@ export default function ProjectModal({ project, labels, onClose }: ProjectModalP
     return (
         <div
             ref={modalRef}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-dark/90 backdrop-blur-sm p-4 md:p-8"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-dark/95 backdrop-blur-md p-4 md:p-8"
             onClick={handleClose}
         >
             <div
                 ref={contentRef}
-                className="bg-dark border border-light/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative"
+                className="bg-dark border border-light/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl shadow-black/50"
                 onClick={(e) => e.stopPropagation()}
                 onMouseEnter={() => setCursorVariant("default")}
             >
                 {/* Close button */}
                 <button
                     onClick={handleClose}
-                    className="absolute top-6 right-6 z-20 text-light/50 hover:text-light transition-colors"
+                    className="absolute top-6 right-6 z-20 text-light/50 hover:text-accent transition-colors duration-300 font-mono text-sm"
+                    data-cursor="hover"
                 >
                     CLOSE [X]
                 </button>

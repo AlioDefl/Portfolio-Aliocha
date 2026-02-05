@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useProgress } from "@react-three/drei";
 import { useStore } from "@/store/useStore";
+import { ANIMATION } from "@/lib/constants";
 
 export default function Loader() {
   const loaderRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ export default function Loader() {
     // Fallback: If loading takes too long (or no assets), force finish
     const fallbackTimeout = setTimeout(() => {
       setProgress(100);
-    }, 3000);
+    }, ANIMATION.LOADER_DELAY);
 
     return () => clearTimeout(fallbackTimeout);
   }, []);

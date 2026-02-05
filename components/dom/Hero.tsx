@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import HeroScene from "@/components/canvas/HeroScene";
 import { useMouse } from "@/hooks/useMouse";
+import { ANIMATION } from "@/lib/constants";
 
 interface HeroProps {
   data: {
@@ -23,8 +24,8 @@ export default function Hero({ data }: HeroProps) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Intro animation
-      const tl = gsap.timeline({ delay: 3 }); // After loader
+      // Intro animation (delay in seconds, convert from ms)
+      const tl = gsap.timeline({ delay: ANIMATION.LOADER_DELAY / 1000 });
 
       // Animate name
       tl.from(nameRef.current, {

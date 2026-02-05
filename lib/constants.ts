@@ -1,8 +1,16 @@
 // Animation and effect constants for the portfolio
 
+// Standardized animation durations (in seconds)
+export const DURATION = {
+  MICRO: 0.3,    // Micro-interactions (hover states, buttons)
+  FAST: 0.5,     // UI transitions (modals, tooltips)
+  MEDIUM: 0.8,   // Content reveals (fade-ins, slide-ups)
+  SLOW: 1.2,     // Major animations (page transitions, hero entrance)
+} as const;
+
 export const ANIMATION = {
   // Loader
-  LOADER_DELAY: 3000, // milliseconds
+  LOADER_DELAY: 2000, // milliseconds (reduced from 3000 for better UX)
   LOADER_BINARY_UPDATE_INTERVAL: 50, // milliseconds
   LOADER_BINARY_LENGTH: 100,
 
@@ -11,7 +19,7 @@ export const ANIMATION = {
   LENIS_DURATION: 1.5,
 
   // Cursor
-  CURSOR_FOLLOW_DURATION: 0.5,
+  CURSOR_FOLLOW_DURATION: DURATION.FAST,
   CURSOR_SCALE_HOVER: 4,
   CURSOR_SCALE_DRAG: 0.5,
 
@@ -21,11 +29,11 @@ export const ANIMATION = {
   // Project gallery
   SKEW_BOUNDS: { min: -8, max: 8 },
   SKEW_VELOCITY_DIVISOR: 400,
-  SKEW_DURATION: 0.5,
+  SKEW_DURATION: DURATION.FAST,
 
   // Magnetic effect
   MAGNETIC_STRENGTH: 0.3,
-  MAGNETIC_DURATION: 0.6,
+  MAGNETIC_DURATION: DURATION.FAST,
 } as const;
 
 export const PARTICLES = {
@@ -61,6 +69,9 @@ export const COLORS = {
   DARK: "#050505",
   LIGHT: "#F0F0F0",
   ACCENT: "#00FFFF",
+  ACCENT_MUTED: "#00B8B8",
+  SECONDARY: "#A855F7",
+  SECONDARY_MUTED: "#9333EA",
 } as const;
 
 export const BREAKPOINTS = {
