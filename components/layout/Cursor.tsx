@@ -27,13 +27,25 @@ export default function Cursor() {
     const hoverElements = document.querySelectorAll("[data-cursor='hover']");
     const setCursorVariant = useStore.getState().setCursorVariant;
 
+    // Store cleanup functions for hover elements
+    const cleanupFunctions: (() => void)[] = [];
+
     hoverElements.forEach((el) => {
-      el.addEventListener("mouseenter", () => setCursorVariant("hover"));
-      el.addEventListener("mouseleave", () => setCursorVariant("default"));
+      const handleEnter = () => setCursorVariant("hover");
+      const handleLeave = () => setCursorVariant("default");
+
+      el.addEventListener("mouseenter", handleEnter);
+      el.addEventListener("mouseleave", handleLeave);
+
+      cleanupFunctions.push(() => {
+        el.removeEventListener("mouseenter", handleEnter);
+        el.removeEventListener("mouseleave", handleLeave);
+      });
     });
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
+      cleanupFunctions.forEach((cleanup) => cleanup());
     };
   }, []);
 

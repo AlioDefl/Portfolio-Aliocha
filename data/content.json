@@ -121,6 +121,12 @@
       "github": "github.com/aliocha",
       "linkedin": "linkedin.com/in/aliocha-deflou",
       "twitter": "@aliocha_dev"
+    },
+    "labels": {
+      "description": "Description",
+      "challenges": "Défis Relevés",
+      "learnings": "Apprentissages",
+      "impact": "Ce que ça m'a apporté"
     }
   },
   "en": {
@@ -245,6 +251,12 @@
       "github": "github.com/aliocha",
       "linkedin": "linkedin.com/in/aliocha-deflou",
       "twitter": "@aliocha_dev"
+    },
+    "labels": {
+      "description": "Description",
+      "challenges": "Challenges",
+      "learnings": "Learnings",
+      "impact": "Impact"
     }
   }
 }

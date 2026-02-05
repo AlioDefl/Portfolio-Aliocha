@@ -118,9 +118,9 @@ export default function Loader() {
           />
         </div>
 
-        {/* Percentage (optional) */}
+        {/* Percentage */}
         <div className="font-mono text-sm text-light/50 mt-4">
-          {Math.floor(useStore.getState().loadProgress)}%
+          {Math.floor(progress)}%
         </div>
       </div>
     </div>

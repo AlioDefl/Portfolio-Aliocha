@@ -21,11 +21,19 @@ interface Project {
   tech: string[];
 }
 
-interface ProjectGalleryProps {
-  projects: Project[];
+interface Labels {
+  description: string;
+  challenges: string;
+  learnings: string;
+  impact: string;
 }
 
-export default function ProjectGallery({ projects }: ProjectGalleryProps) {
+interface ProjectGalleryProps {
+  projects: Project[];
+  labels: Labels;
+}
+
+export default function ProjectGallery({ projects, labels }: ProjectGalleryProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -180,6 +188,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
+          labels={labels}
           onClose={() => setSelectedProject(null)}
         />
       )}

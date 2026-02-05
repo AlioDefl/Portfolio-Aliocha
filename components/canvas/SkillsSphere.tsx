@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import { useStore } from "@/store/useStore";
+import ErrorBoundary from "@/components/dom/ErrorBoundary";
 
 function MorphingSphere() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -42,10 +43,12 @@ function MorphingSphere() {
 export default function SkillsSphere() {
   return (
     <div className="w-full h-full">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-        <ambientLight intensity={0.5} />
-        <MorphingSphere />
-      </Canvas>
+      <ErrorBoundary>
+        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+          <ambientLight intensity={0.5} />
+          <MorphingSphere />
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 }

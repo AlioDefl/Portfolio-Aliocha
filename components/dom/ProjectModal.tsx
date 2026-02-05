@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { useStore } from "@/store/useStore";
 
@@ -17,12 +18,20 @@ interface Project {
     tech: string[];
 }
 
+interface Labels {
+    description: string;
+    challenges: string;
+    learnings: string;
+    impact: string;
+}
+
 interface ProjectModalProps {
     project: Project;
+    labels: Labels;
     onClose: () => void;
 }
 
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, labels, onClose }: ProjectModalProps) {
     const modalRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const setCursorVariant = useStore((state) => state.setCursorVariant);
@@ -84,10 +93,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Image Section */}
                     <div className="relative h-64 md:h-full min-h-[300px]">
-                        <img
+                        <Image
                             src={project.image}
                             alt={project.title}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-50" />
                     </div>
@@ -117,27 +128,27 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                         <div className="space-y-6 font-mono text-sm text-light/80 leading-relaxed">
                             <div>
-                                <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">Description</h3>
+                                <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">{labels.description}</h3>
                                 <p>{project.description}</p>
                             </div>
 
                             {project.challenges && (
                                 <div>
-                                    <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">Défis Relevés</h3>
+                                    <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">{labels.challenges}</h3>
                                     <p>{project.challenges}</p>
                                 </div>
                             )}
 
                             {project.learnings && (
                                 <div>
-                                    <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">Apprentissages</h3>
+                                    <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">{labels.learnings}</h3>
                                     <p>{project.learnings}</p>
                                 </div>
                             )}
 
                             {project.impact && (
                                 <div>
-                                    <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">Ce que ça m'a apporté</h3>
+                                    <h3 className="text-accent text-xs tracking-widest mb-2 uppercase">{labels.impact}</h3>
                                     <p>{project.impact}</p>
                                 </div>
                             )}
