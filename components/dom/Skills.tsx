@@ -125,18 +125,18 @@ export default function Skills({ data }: SkillsProps) {
         {/* Design Skills */}
         <div>
           <h3 className="font-display text-2xl md:text-3xl font-bold text-light/80 mb-8 tracking-tight flex items-center gap-4">
-            <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+            <span className="w-2 h-2 bg-secondary rounded-full"></span>
             Design & Creative
           </h3>
           <div ref={designRef} className="flex flex-wrap gap-3">
             {data.design.map((skill, idx) => (
               <div
                 key={idx}
-                className="group relative px-6 py-3 border border-light/10 bg-light/5 rounded-full hover:border-purple-500/50 hover:bg-light/10 transition-all duration-300 cursor-default overflow-hidden"
+                className="group relative px-6 py-3 border border-light/10 bg-light/5 rounded-full hover:border-secondary/50 hover:bg-light/10 transition-all duration-300 cursor-default overflow-hidden"
                 data-cursor="hover"
               >
-                <div className="absolute inset-0 bg-purple-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                <p className="relative font-mono text-sm md:text-base text-light group-hover:text-purple-400 transition-colors duration-300 z-10">
+                <div className="absolute inset-0 bg-secondary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <p className="relative font-mono text-sm md:text-base text-light group-hover:text-secondary transition-colors duration-300 z-10">
                   {skill}
                 </p>
               </div>

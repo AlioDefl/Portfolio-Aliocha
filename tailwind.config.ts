@@ -12,6 +12,9 @@ const config: Config = {
         dark: '#050505',
         light: '#F0F0F0',
         accent: '#00FFFF',
+        'accent-muted': '#00B8B8',
+        secondary: '#A855F7',
+        'secondary-muted': '#9333EA',
       },
       fontFamily: {
         display: ['var(--font-clash)', 'sans-serif'],

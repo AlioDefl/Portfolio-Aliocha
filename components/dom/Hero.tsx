@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import HeroScene from "@/components/canvas/HeroScene";
 import { useMouse } from "@/hooks/useMouse";
+import { ANIMATION } from "@/lib/constants";
 
 interface HeroProps {
   data: {
@@ -23,8 +24,8 @@ export default function Hero({ data }: HeroProps) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Intro animation
-      const tl = gsap.timeline({ delay: 3 }); // After loader
+      // Intro animation (delay in seconds, convert from ms)
+      const tl = gsap.timeline({ delay: ANIMATION.LOADER_DELAY / 1000 });
 
       // Animate name
       tl.from(nameRef.current, {
@@ -116,30 +117,11 @@ export default function Hero({ data }: HeroProps) {
         {/* Scroll indicator */}
         <div className="scroll-indicator absolute bottom-12 left-1/2 -translate-x-1/2">
           <div className="w-[1px] h-16 bg-light/30 relative overflow-hidden">
-            <div
-              className="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-light animate-pulse"
-              style={{ animation: "scroll 2s ease-in-out infinite" }}
-            />
+            <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-light animate-scroll" />
           </div>
           <p className="font-mono text-xs text-light/50 mt-4 tracking-widest">SCROLL</p>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(100%);
-            opacity: 0;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -18,7 +18,7 @@ export default function Home() {
       <LanguageSwitcher />
       <Hero data={data.hero} />
       <About data={data.about} />
-      <ProjectGallery projects={data.projects} />
+      <ProjectGallery projects={data.projects} labels={data.labels} />
       <Skills data={data.skills} />
       <Contact data={data.contact} />
     </main>

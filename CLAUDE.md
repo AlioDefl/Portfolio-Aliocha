@@ -55,9 +55,14 @@ Portfolio-Aliocha/
 ├── store/
 │   └── useStore.ts        # Zustand state management
 │
+├── lib/
+│   ├── constants.ts       # Centralized magic numbers and config
+│   └── gsap.ts            # GSAP configuration and exports
+│
 ├── public/
 │   ├── fonts/             # Custom fonts (Clash Display, JetBrains Mono)
-│   └── images/            # Project images (project-1.png, etc.)
+│   ├── images/            # Project images (project-1.png, etc.)
+│   └── robots.txt         # SEO robots file
 │
 └── Configuration
     ├── package.json       # Dependencies and scripts
@@ -123,7 +128,8 @@ npm run lint     # Run ESLint
 
 ### 2. WebGL Particle System
 **Location**: `components/canvas/HeroScene.tsx`
-- 5000 particles using THREE.Points
+- Responsive particle count (5000 desktop, 3500 tablet, 2000 mobile)
+- Uses constants from `lib/constants.ts`
 - Mouse-reactive rotation
 - Additive blending for glow effect
 
@@ -236,15 +242,20 @@ Recommended setup:
 | Configure build | `next.config.js` |
 | Modify loader | `components/dom/Loader.tsx` |
 | Adjust scroll feel | `components/layout/SmoothScroll.tsx` (lerp value) |
-| Change particle count | `components/canvas/HeroScene.tsx` (count variable) |
+| Change particle count | `lib/constants.ts` (PARTICLES config) |
+| Modify animation constants | `lib/constants.ts` |
+| SEO metadata | `app/layout.tsx` |
+| 404 page | `app/not-found.tsx` |
 
 ## Performance Considerations
 
-- Particle count: 5000 (reduce for mobile)
-- Images: Optimize to <500KB each
+- Particle count: Responsive (5000 desktop, 3500 tablet, 2000 mobile)
+- Custom cursor: Hidden on touch devices
+- Images: Optimize to <500KB each, use next/image for optimization
 - Fonts: Use variable fonts (woff2)
 - 3D scenes wrapped in ErrorBoundary for graceful degradation
 - Lenis lerp value affects perceived performance (0.08 = heavy, 0.1+ = lighter)
+- Accessibility: `prefers-reduced-motion` support in globals.css
 
 ## Things to Avoid
 

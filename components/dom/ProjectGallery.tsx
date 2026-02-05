@@ -4,7 +4,7 @@ import { useRef, useLayoutEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectModal from "./ProjectModal";
-
+import { ANIMATION, DURATION } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,11 +21,19 @@ interface Project {
   tech: string[];
 }
 
-interface ProjectGalleryProps {
-  projects: Project[];
+interface Labels {
+  description: string;
+  challenges: string;
+  learnings: string;
+  impact: string;
 }
 
-export default function ProjectGallery({ projects }: ProjectGalleryProps) {
+interface ProjectGalleryProps {
+  projects: Project[];
+  labels: Labels;
+}
+
+export default function ProjectGallery({ projects, labels }: ProjectGalleryProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -56,13 +64,14 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
           // VELOCITY SKEW MAGIC
           onUpdate: (self) => {
             const velocity = self.getVelocity();
-            const skewAmount = gsap.utils.clamp(-8, 8, velocity / 400);
+            const { min, max } = ANIMATION.SKEW_BOUNDS;
+            const skewAmount = gsap.utils.clamp(min, max, velocity / ANIMATION.SKEW_VELOCITY_DIVISOR);
 
             // Apply skew to cards
             gsap.to(cardsRef.current, {
               skewY: skewAmount,
               overwrite: "auto",
-              duration: 0.5,
+              duration: ANIMATION.SKEW_DURATION,
               ease: "power3.out",
             });
           },
@@ -128,11 +137,11 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="absolute top-0 left-0 w-[120%] h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  className="absolute top-0 left-0 w-[120%] h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
                   style={{ transform: "translateX(-10%)" }}
                 />
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
               </div>
 
               {/* Content */}
@@ -168,7 +177,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
               </div>
 
               {/* Index number */}
-              <div className="absolute top-8 right-8 font-display text-6xl md:text-8xl font-bold text-light/5 group-hover:text-light/10 transition-colors duration-500">
+              <div className="absolute top-8 right-8 font-display text-6xl md:text-8xl font-bold text-light/5">
                 {i.toString().padStart(2, "0")}
               </div>
             </div>
@@ -180,6 +189,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
+          labels={labels}
           onClose={() => setSelectedProject(null)}
         />
       )}

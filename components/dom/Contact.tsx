@@ -16,6 +16,9 @@ export default function Contact({ data }: ContactProps) {
   const magneticRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
+    // Store cleanup functions for each link
+    const cleanupFunctions: (() => void)[] = [];
+
     // Magnetic effect on links
     magneticRefs.current.forEach((link) => {
       if (!link) return;
@@ -45,11 +48,16 @@ export default function Contact({ data }: ContactProps) {
       link.addEventListener("mousemove", handleMouseMove);
       link.addEventListener("mouseleave", handleMouseLeave);
 
-      return () => {
+      cleanupFunctions.push(() => {
         link.removeEventListener("mousemove", handleMouseMove);
         link.removeEventListener("mouseleave", handleMouseLeave);
-      };
+      });
     });
+
+    // Cleanup all listeners on unmount
+    return () => {
+      cleanupFunctions.forEach((cleanup) => cleanup());
+    };
   }, []);
 
   const links = [
@@ -101,7 +109,7 @@ export default function Contact({ data }: ContactProps) {
         {/* Footer */}
         <div className="mt-32 pt-12 border-t border-light/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="font-mono text-xs text-light/30">
-            © 2025 ALIOCHA. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} ALIOCHA. ALL RIGHTS RESERVED.
           </p>
           <p className="font-mono text-xs text-light/30">
             BUILT WITH NEXT.JS, THREE.JS & GSAP
